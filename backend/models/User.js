@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const userSchema=new mongoose.schema({
+const userSchema=new mongoose.Schema({
     name:{
         type:String,
         required:true,
@@ -32,7 +32,7 @@ const userSchema=new mongoose.schema({
     },
     createdAt:{
         type:Date,
-        dafault:Date.now
+        default:Date.now
     }
 });
 
