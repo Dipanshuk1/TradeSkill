@@ -7,12 +7,13 @@ export const AuthProvider = ({children}) => {
     const [user,setUser] = useState(null);
     const [accessToken,setAccessToken] = useState(null);
     const [loading,setLoading] = useState(true);
+    
     useEffect(() => {
         const restoreSession = async () => {
             try {
-                const response = await axios.get('/refresh');
+                const response = await axios.get('/auth/refresh-token');
                 if (response.ok) {
-                    const data = await response.json();
+                    const data = response.data;
                     setUser(data.user);
                     setAccessToken(data.accessToken);
                 }
